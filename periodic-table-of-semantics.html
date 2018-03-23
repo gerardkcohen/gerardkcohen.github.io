@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Periodic Table of Semantics</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <style>
+    html {
+        background-size: cover;
+        box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
+    table {
+      height: 1px;
+      margin: auto;
+    }
+
+    .semantics {
+        width: 100%;
+    }
+
+    .Element {
+        align-items: center;
+        align-content: stretch;
+        border: 2px solid #000;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        font-size: .875rem;
+        height: 100%;
+        justify-content: center;
+        padding: .25rem;
+        text-align: center;
+    }
+
+/*    .Element.document {
+        background-color: #E27573;
+    }
+
+    .Element.metadata {
+        background-color: #85e607;
+    }
+
+    .Element.sections {
+        background-color: #FA9911;
+    }
+
+    .Element.grouping {
+        background-color: #D864FC;
+    }
+
+    .Element.text {
+        background-color: #54C0E8;
+    }
+
+    .Element.edit {
+        background-color: #99A8FF;
+    }
+
+    .Element.embedded {
+        background-color: #2CC7B7;
+    }
+
+    .Element.tabular {
+        background-color: #DBB002;
+    }
+
+    .Element.forms {
+        background-color: #EA66AD;
+    }
+
+    .Element.interactive {
+        background-color: #99C1CC;
+    }
+
+    .Element.scripting {
+        background-color: #74B3F2;
+    }
+
+    .document .Element.document,
+    .metadata .Element.metadata,
+    .sections .Element.sections,
+    .grouping .Element.grouping,
+    .text .Element.text,
+    .edit .Element.edit,
+    .embedded .Element.embedded,
+    .tabular .Element.tabular,
+    .forms .Element.forms,
+    .interactive .Element.interactive,
+    .scripting .Element.scripting,
+    .hover-document .Element:not(.document),
+    .hover-metadata .Element:not(.metadata),
+    .hover-sections .Element:not(.sections),
+    .hover-grouping .Element:not(.grouping),
+    .hover-text .Element:not(.text),
+    .hover-edit .Element:not(.edit),
+    .hover-embedded .Element:not(.embedded),
+    .hover-tabular .Element:not(.tabular),
+    .hover-forms .Element:not(.forms),
+    .hover-interactive .Element:not(.interactive),
+    .hover-scripting .Element:not(.scripting) {
+        opacity: .5;
+    }*/
+
+    .Element .primary {
+        font-weight: bold;
+    }
+
+    .Element .secondary {
+        font-size: .625em;
+    }
+
+    .Element a {
+        color: initial;
+    }
+
+    .visually-hidden {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+
+    @media screen and (min-width: 1050px) {
+      .Element {
+        font-size: 1rem;
+        height: 3.75vw;
+      }
+    }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- <form>
+            <fieldset>
+                <legend>Filter</legend>
+
+                <label class="Checkbox" for="document">
+                    <input class="Checkbox-input" id="all" type="checkbox" checked />
+                    <span class="Checkbox-label">Select/ Unselect All</span>
+                </label>
+                <label class="Checkbox" for="document">
+                    <input class="Checkbox-input" id="document" name="filter" value="document" type="checkbox" checked />
+                    <span class="Checkbox-label">Document</span>
+                </label>
+                <label class="Checkbox" for="metadata">
+                    <input class="Checkbox-input" id="metadata" name="filter" value="metadata" type="checkbox" checked />
+                    <span class="Checkbox-label">Metadata</span>
+                </label>
+                <label class="Checkbox" for="sections">
+                    <input class="Checkbox-input" id="sections" name="filter" value="sections" type="checkbox" checked />
+                    <span class="Checkbox-label">Sections</span>
+                </label>
+                <label class="Checkbox" for="grouping">
+                    <input class="Checkbox-input" id="grouping" name="filter" value="grouping" type="checkbox" checked />
+                    <span class="Checkbox-label">Grouping</span>
+                </label>
+                <label class="Checkbox" for="text">
+                    <input class="Checkbox-input" id="text" name="filter" value="text" type="checkbox" checked />
+                    <span class="Checkbox-label">Text</span>
+                </label>
+                <label class="Checkbox" for="edit">
+                    <input class="Checkbox-input" id="edit" name="filter" value="edit" type="checkbox" checked />
+                    <span class="Checkbox-label">Edits</span>
+                </label>
+                <label class="Checkbox" for="embedded">
+                    <input class="Checkbox-input" id="embedded" name="filter" value="embedded" type="checkbox" checked />
+                    <span class="Checkbox-label">Embedded</span>
+                </label>
+                <label class="Checkbox" for="tabular">
+                    <input class="Checkbox-input" id="tabular" name="filter" value="tabular" type="checkbox" checked />
+                    <span class="Checkbox-label">Tabular</span>
+                </label>
+                <label class="Checkbox" for="forms">
+                    <input class="Checkbox-input" id="forms" name="filter" value="forms" type="checkbox" checked />
+                    <span class="Checkbox-label">Forms</span>
+                </label>
+                <label class="Checkbox" for="interactive">
+                    <input class="Checkbox-input" id="interactive" name="filter" value="interactive" type="checkbox" checked />
+                    <span class="Checkbox-label">Interactive</span>
+                </label>
+                <label class="Checkbox" for="scripting">
+                    <input class="Checkbox-input" id="scripting" name="filter" value="scripting" type="checkbox" checked />
+                    <span class="Checkbox-label">Scripting</span>
+                </label>
+                <button id="filter" type="button">Apply Filter</button>
+            </fieldset>
+        </form> -->
+        <table role="grid" aria-readonly="true" class="semantics">
+            <caption>
+                <h1>Periodic Table of Semantics - DRAFT</h1></caption>
+            <tbody>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element document">
+                            <div class="primary"><span class="visually-hidden">document element,</span> <a href="https://html.spec.whatwg.org/#the-html-element">html</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell" colspan="10"></td>
+                    <!-- <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td> -->
+                    <td role="gridcell">
+                        <div class="Element tabular">
+                            <div class="primary"><span class="visually-hidden">tabular element,</span><a href="https://html.spec.whatwg.org/#the-table-element">table</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#table">table</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element interactive">
+                            <div class="primary"><span class="visually-hidden">interactive element,</span><a href="https://html.spec.whatwg.org/#the-details-element">details</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#group">group</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element metadata">
+                            <div class="primary"><span class="visually-hidden">metadata element,</span><a href="https://html.spec.whatwg.org/#the-head-element">head</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element sections">
+                            <div class="primary"><span class="visually-hidden">sections element,</span><a href="https://html.spec.whatwg.org/#the-section-element">section</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#regio">region</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-hr-element">hr</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#separator">separator</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-dd-element">dd</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#definition">definition</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell" colspan="7"></td>
+                    <!-- <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td> -->
+                    <td role="gridcell">
+                        <div class="Element tabular">
+                            <div class="primary"><span class="visually-hidden">tabular element,</span><a href="https://html.spec.whatwg.org/#the-caption-element">caption</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element interactive">
+                            <div class="primary"><span class="visually-hidden">interactive element,</span><a href="https://html.spec.whatwg.org/#the-summary-element">summary</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#button">button</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element metadata">
+                            <div class="primary"><span class="visually-hidden">metadata element,</span><a href="https://html.spec.whatwg.org/#the-title-element">title</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element sections">
+                            <div class="primary"><span class="visually-hidden">section element,</span><a href="https://html.spec.whatwg.org/#the-nav-element">nav</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#navigation">navigation</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-pre-element">pre</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-figure-element">figure</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#figure">figure</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell" colspan="5"></td>
+                    <!-- <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td>
+          <td role="gridcell"></td> -->
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-map-element">map</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-optgroup-element">optgroup</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#group">group</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element tabular">
+                            <div class="primary"><span class="visually-hidden">tabular element,</span><a href="https://html.spec.whatwg.org/#the-colgroup-element">colgroup</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element interactive">
+                            <div class="primary"><span class="visually-hidden">interactive element,</span><a href="https://html.spec.whatwg.org/#the-dialog-element">dialog</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#dialog">dialog</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element metadata">
+                            <div class="primary"><span class="visually-hidden">metadata element,</span><a href="https://html.spec.whatwg.org/#the-base-element">base</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element sections">
+                            <div class="primary"><span class="visually-hidden">section element,</span><a href="https://html.spec.whatwg.org/#the-aside-element">aside</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#complimentary">complimentary</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-blockquote-element">blockquote</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-figcaption-element">figcaption</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-s-element">s</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-rp-element">rp</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-sub-element">sub</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-bdo-element">bdo</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-iframe-element">iframe</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-area-element">area</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#link">link</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-option-element">option</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#option">option</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element tabular">
+                            <div class="primary"><span class="visually-hidden">tabular element,</span><a href="https://html.spec.whatwg.org/#the-col-element">col</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element scripting">
+                            <div class="primary"><span class="visually-hidden">scripting element,</span><a href="https://html.spec.whatwg.org/#the-script-element">script</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element metadata">
+                            <div class="primary"><span class="visually-hidden">metadata element,</span><a href="https://html.spec.whatwg.org/#the-link-element">link</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#link">link</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element sections">
+                            <div class="primary"><span class="visually-hidden">section element,</span><a href="https://html.spec.whatwg.org/#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements">h1-h6</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#heading">heading</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-ol-element">ol</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#list">list</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-main-element">main</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#main">main</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-cite-element">cite</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-data-element">data</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-sup-element">sup</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">span element,</span><a href="https://html.spec.whatwg.org/#the-span-element">span</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-embed-element">embed</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-form-element">form</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#form">form</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-textarea-element">textarea</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#textarea">textarea</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element tabular">
+                            <div class="primary"><span class="visually-hidden">tabular element,</span><a href="https://html.spec.whatwg.org/#the-tbody-element">tbody</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#rowgroup">rowgroup</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element scripting">
+                            <div class="primary"><span class="visually-hidden">scripting element,</span><a href="https://html.spec.whatwg.org/#the-noscript-element">noscript</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element metadata">
+                            <div class="primary"><span class="visually-hidden">metadata element,</span><a href="https://html.spec.whatwg.org/#the-meta-element">meta</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element sections">
+                            <div class="primary"><span class="visually-hidden">section element,</span><a href="https://html.spec.whatwg.org/#the-hgroup-element">hgroup</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-ul-element">ul</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#list">list</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-div-element">div</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-q-element">q</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-time-element">time</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-i-element">i</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-br-element">br</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-object-element">object</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">label element,</span><a href="https://html.spec.whatwg.org/#the-label-element">label</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-output-element">output</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#status">status</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element tabular">
+                            <div class="primary"><span class="visually-hidden">tabular element,</span><a href="https://html.spec.whatwg.org/#the-thead-element">thead</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#rowgroup">rowgroup</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element scripting">
+                            <div class="primary"><span class="visually-hidden">scripting element,</span><a href="https://html.spec.whatwg.org/#the-template-element">template</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element metadata">
+                            <div class="primary"><span class="visually-hidden">metadata element,</span><a href="https://html.spec.whatwg.org/#the-style-element">style</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element sections">
+                            <div class="primary"><span class="visually-hidden">section element,</span><a href="https://html.spec.whatwg.org/#the-header-element">header</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#banner">banner</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-menu-element">menu</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#menu">menu</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-a-element">a</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#link">link</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-dfn-element">dfn</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-code-element">code</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-b-element">b</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-wbr-element">wbr</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-param-element">param</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-input-element">input</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-progress-element">progress</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#progressbar">progressbar</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element tabular">
+                            <div class="primary"><span class="visually-hidden">tfoot element,</span><a href="https://html.spec.whatwg.org/#the-tfoot-element">tfoot</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#rowgroup">rowgroup</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element scripting">
+                            <div class="primary"><span class="visually-hidden">scripting element,</span><a href="https://html.spec.whatwg.org/#the-slot-element">slot</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element sections">
+                            <div class="primary"><span class="visually-hidden">section element,</span><a href="https://html.spec.whatwg.org/#the-body-element">body</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#document">document</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element sections">
+                            <div class="primary"><span class="visually-hidden">section element,</span><a href="https://html.spec.whatwg.org/#the-footer-element">footer</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#contentinfo">contentinfo</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-li-element">li</a></div>
+                            <div class="secondary"><a href="https://www.w3.org/TR/wai-aria-1.1/#listitem">listitem</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-em-element">em</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-abbr-element">abbr</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-var-element">var</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-u-element">u</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-picture-element">picture</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-video-element">video</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-button-element">button</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#button">button</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-meter-element">meter</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element tabular">
+                            <div class="primary"><span class="visually-hidden">tabular element,</span><a href="https://html.spec.whatwg.org/#the-tr-element">tr</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element scripting">
+                            <div class="primary"><span class="visually-hidden">scripting element,</span><a href="https://html.spec.whatwg.org/#the-canvas-element">canvas</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element sections">
+                            <div class="primary"><span class="visually-hidden">section element,</span><a href="https://html.spec.whatwg.org/#the-article-element">article</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#article">article</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element sections">
+                            <div class="primary"><span class="visually-hidden">section element,</span><a href="https://html.spec.whatwg.org/#the-address-element">address</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-dl-element">dl</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#list">list</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-strong-element">strong</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-ruby-element">ruby</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-samp-element">samp</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-mark-element">mark</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-source-element">source</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-audio-element">audio</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-select-element">select</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#combobox">combobox</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-fieldset-element">fieldset</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element tabular">
+                            <div class="primary"><span class="visually-hidden">tabular element,</span><a href="https://html.spec.whatwg.org/#the-td-element">td</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#cell">cell</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element edit">
+                            <div class="primary"><span class="visually-hidden">edit element,</span><a href="https://html.spec.whatwg.org/#the-ins-element">ins</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element sections">
+                            <div class="primary"><span class="visually-hidden">section element,</span><a href="https://html.spec.whatwg.org/#the-section-element">section</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#region">region</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-p-element">p</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element grouping">
+                            <div class="primary"><span class="visually-hidden">grouping element,</span><a href="https://html.spec.whatwg.org/#the-dt-element">dt</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#listitem">listitem</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-small-element">small</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-rt-element">rt</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-kbd-element">kbd</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element text">
+                            <div class="primary"><span class="visually-hidden">text element,</span><a href="https://html.spec.whatwg.org/#the-bdi-element">bdi</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-img-element">img</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#img">img</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element embedded">
+                            <div class="primary"><span class="visually-hidden">embedded element,</span><a href="https://html.spec.whatwg.org/#the-track-element">track</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-datalist-element">datalist</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#listbox">listbox</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#the-legend-element">legend</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element tabular">
+                            <div class="primary"><span class="visually-hidden">tabular element,</span><a href="https://html.spec.whatwg.org/#the-th-element">th</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#column">column</a>/ <a href="https://www.w3.org/TR/wai-aria-1.1/#rowheader">rowheader</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element edit">
+                            <div class="primary"><span class="visually-hidden">edit element,</span><a href="https://html.spec.whatwg.org/#the-del-element">del</a></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table role="grid" aria-readonly="true">
+            <caption>
+                <h2>Input Types</h2>
+                <p>States of the input type attribute</p>
+            </caption>
+            <tbody>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#button-state-(type=button)">button</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#button">button</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                    </td>
+                    <td role="gridcell">
+                    </td>
+                    <td role="gridcell">
+                    </td>
+                    <td role="gridcell">
+                    </td>
+                    <td role="gridcell">
+                    </td>
+                    <td role="gridcell">
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#number-state-(type=number)">number</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#spinbutton">spinbutton</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#password-state-(type=password)">password</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#radio-button-state-(type=radio)">radio</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#radio">radio</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                    </td>
+                    <td role="gridcell">
+                    </td>
+                    <td role="gridcell">
+                    </td>
+                    <td role="gridcell">
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#month-state-(type=month)">month</a></div>
+                        </div>
+                    </td>
+
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#week-state-(type=week)">week</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                  <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#checkbox-state-(type=checkbox)">checkbox</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#checkbox">checkbox</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#color-state-(type=color)">color</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#date-state-(type=date)">date</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#local-date-and-time-state-(type=datetime-local)">datetime</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#e-mail-state-(type=email)">email</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#textbox">textbox</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#file-upload-state-(type=file)">file</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#hidden-state-(type=hidden)">hidden</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#image-button-state-(type=image)">image</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#button">button</a></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr role="row">
+                  <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#range-state-(type=range)">range</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#slider">slider</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#reset-button-state-(type=reset)">reset</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#button">button</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#text-(type=text)-state-and-search-state-(type=search)">search</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#searchbox">searchbox</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#submit-button-state-(type=submit)">submit</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#button">button</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#telephone-state-(type=tel)">tel</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#textbox">textbox</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#text-(type=text)-state-and-search-state-(type=search)">text</a></div>
+                            <div class="secondary"><span class="visually-hidden">implies ARIA role </span><a href="https://www.w3.org/TR/wai-aria-1.1/#textbox">textbox</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#time-state-(type=time)">time</a></div>
+                        </div>
+                    </td>
+                    <td role="gridcell">
+                        <div class="Element forms">
+                            <div class="primary"><span class="visually-hidden">forms element,</span><a href="https://html.spec.whatwg.org/#url-state-(type=url)">url</a></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr role="row">
+                    <th colspan="8">
+                        Notes
+                    </th>
+                </tr>
+                <tr role="row">
+                    <td role="gridcell" colspan="8">
+                        <ol>
+                            <li>If type="[text, search, tel, url, email]" used with the <em>list</em> attribute then role="combobox" is implied.</li>
+                        </ol>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <table role="grid" aria-readonly="true">
+          <caption><h2>Additional ARIA 1.1 roles</h2></caption>
+          <tbody>
+            <tr role="row">
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#gridcell">gridcell</a></div>
+                </div>
+              </td>
+              <td role="gridcell"></td>
+              <td role="gridcell"></td>
+              <td role="gridcell"></td>
+              <td role="gridcell"></td>
+            </tr>
+
+            <tr role="row">
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#menuitem">menuitem</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#tabpanel">tabpanel</a></div>
+                </div>
+              </td>
+              <td role="gridcell"></td>
+              <td role="gridcell"></td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#tooltip">tooltip</a></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#menuitemcheckbox">menuitemcheckbox</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#treeitem">treetem</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#treegrid">treegrid</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#none">none</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#alert">alert</a></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#menuitemradio">menuitemradio</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#grid">grid</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#application">application</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#note">note</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#log">log</a></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#scrollbar">scrollbar</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#menubar">menubar</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#directory">directory</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#presentation">presentation</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#marquee">marquee</a></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#switch">switch</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#radiogroup">radiogroup</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#feed">feed</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#term">term</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#timer">timer</a></div>
+                </div>
+              </td>
+            </tr>
+            <tr role="row">
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#tab">tab</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#tablist">tablist</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#math">math</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#toolbar">toolbar</a></div>
+                </div>
+              </td>
+              <td role="gridcell">
+                <div class="Element widget">
+                    <div class="primary"><span class="visually-hidden">widget role,</span><a href="https://www.w3.org/TR/wai-aria-1.1/#alertdialog">alertdialog</a></div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </main>
+    <footer role="contentinfo">
+        <h2>Sources</h2>
+        <ul>
+            <li><a href="https://html.spec.whatwg.org/">WHATWG HTML Living Standard</a></li>
+            <li><a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a></li>
+            <li><a href="https://www.w3.org/TR/wai-aria-1.1/">WAI-ARIA 1.1</a></li>
+        </ul>
+    </footer>
+    <!-- <script>
+
+      var all = document.getElementById('all');
+
+      document.querySelector('form').addEventListener('click', function (event) {
+        var target = event.target;
+        var checked;
+
+        if (target.type === 'checkbox') {
+          checked = document.querySelectorAll('form [type="checkbox"]:not(#all):not(:checked)').length;
+
+          all.checked = (checked === 0);
+          all.indeterminate = (checked > 0 && checked < 11);
+        }
+      });
+
+      document.getElementById('all').addEventListener('click', function () {
+
+      });
+
+      document.getElementById('filter').addEventListener('click', function () {
+        var classes = [];
+        Array.prototype.slice.call(document.querySelectorAll('form [type="checkbox"]:not(:checked)')).forEach(function (item) {
+          classes.push(item.value);
+        });
+
+        document.body.className = '';
+
+        if (classes.length) {
+          document.body.classList.add.apply(document.body.classList,classes);
+        }
+
+      });
+    </script> -->
+</body>
+
+</html>
